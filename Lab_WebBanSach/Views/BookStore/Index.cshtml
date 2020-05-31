@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Lab_WebBanSach.Models.SACH>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+    <h3 style="Text-align:Center; color:red">Sản Phẩm Mới</h3>
+    @foreach(var sach in Model)
+    {
+     
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                    <a href="@Url.Action("Details","BookStore",new { id=sach.Masach})">
+                        <img src="~/Hinhsanpham/@sach.Anhbia" width="100">
+                        <div class="caption">
+                            <h4 class="pull-right">@sach.Giaban VNĐ</h4>
+                            <br />
+                            <p style="font-weight: bold; font-size: 16px; margin-top: 10px;">@sach.Tensach</p>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right">15 reviews</p>
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </p>
+                        </div>
+                    </a>
+            </div>
+        </div>
+    }

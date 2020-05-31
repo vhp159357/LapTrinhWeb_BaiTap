@@ -1,0 +1,39 @@
+﻿@model Lab_WebBanSach.Models.SACH
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<style>
+    #DatMua a{
+        clear:both;
+        background-color:red;
+        color:white;
+        width:120px;
+        display:block;
+        float:right;
+        text-align:center;
+        padding:10px;
+        text-decoration:none;
+        font-weight:bold;
+    }
+    #DatMua a:hover{
+        background-color: rgb(240, 94, 98);
+        color:white;
+    }
+</style>
+<h2>THÔNG TIN CHI TIẾT SÁCH </h2>
+<div>
+    <div style="width:40%;float:left;border-left:dotted 1px;border-color:azure">
+        <img src="~/Hinhsanpham/@Model.Anhbia" width="100%"/>
+    </div>
+    <div style="60%;float:left;padding:10px;">
+        <h4 style="font-weight:bold;color:red;">Tên Sách : @Model.Tensach</h4>
+        <p style="text-align:justify"><span style="font-weight:bold">Mô Tả :</span>@Model.Mota</p>
+        <p style="font-weight:bold">Giá Bán:<span style="color:red;font-size:16pt;"></span>@Model.Giaban VNĐ</p>
+    </div>
+    <div id="DatMua">
+        <a class="btn bg-danger" href="@Url.Action("ThemGioHang","GioHang",new { @iMaSach=@Model.Masach,@strURL = Request.Url.ToString()})">
+            Đặt Mua
+        </a>
+    </div>
+</div>

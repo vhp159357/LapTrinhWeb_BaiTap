@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Lab_WebBanSach.Models.NHAXUATBAN>
+
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href=@Url.Action("SPTheoNXB","BookStore",new { id = item.MaNXB}) class="list-group-item">
+            @item.TenNXB
+        </a>
+    }
+</div>
