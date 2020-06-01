@@ -26,10 +26,10 @@
     <div style="width:40%;float:left;border-left:dotted 1px;border-color:azure">
         <img src="~/Hinhsanpham/@Model.Anhbia" width="100%"/>
     </div>
-    <div style="60%;float:left;padding:10px;">
+    <div style="float:left;padding:10px;">
         <h4 style="font-weight:bold;color:red;">Tên Sách : @Model.Tensach</h4>
         <p style="text-align:justify"><span style="font-weight:bold">Mô Tả :</span>@Model.Mota</p>
-        <p style="font-weight:bold">Giá Bán:<span style="color:red;font-size:16pt;"></span>@Model.Giaban VNĐ</p>
+        <p style="font-weight:bold">Giá Bán:<span style="color:red;font-size:16pt;"></span>@String.Format("{0:0,0}", Model.Giaban) VNĐ</p>
     </div>
     <div id="DatMua">
         <a class="btn bg-danger" href="@Url.Action("ThemGioHang","GioHang",new { @iMaSach=@Model.Masach,@strURL = Request.Url.ToString()})">

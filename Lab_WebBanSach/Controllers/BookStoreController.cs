@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace Lab_WebBanSach.Controllers
 {
@@ -11,10 +12,12 @@ namespace Lab_WebBanSach.Controllers
     {
         dbQLBansachDataContext data = new dbQLBansachDataContext();
         // GET: BookStore
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var sachMoi = LaySachMoi(6);
-            return View(sachMoi);
+            int pageSize = 6;
+            int pageNum = (page ?? 1);
+            var sachMoi = LaySachMoi(18);
+            return View(sachMoi.ToPagedList(pageNum,pageSize));
         }
         private List<SACH> LaySachMoi(int count)
         {
@@ -30,15 +33,19 @@ namespace Lab_WebBanSach.Controllers
             var nxb = from nx in data.NHAXUATBANs select nx;
             return PartialView(nxb);
         }
-        public ActionResult SPTheochude(int id)
+        public ActionResult SPTheochude(int id, int? page)
         {
+            int pageSize = 6;
+            int pageNum = (page ?? 1);
             var sach = from s in data.SACHes where s.MaCD == id select s;
-            return View(sach);
+            return View(sach.ToPagedList(pageNum,pageSize));
         }
-        public ActionResult SPTheoNXB(int id)
+        public ActionResult SPTheoNXB(int id, int? page)
         {
+            int pageSize = 6;
+            int pageNum = (page ?? 1);
             var sach = from s in data.SACHes where s.MaNXB == id select s;
-            return View(sach);
+            return View(sach.ToPagedList(pageNum, pageSize));
         }
         public ActionResult Details(int id)
         {

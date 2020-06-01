@@ -326,3 +326,7 @@ C:\Users\unfor\Desktop\ThucHanhLapTrinhWeb\LapTrinhWeb_BaiTap\Lab_WebBanSach\bin
 C:\Users\unfor\Desktop\ThucHanhLapTrinhWeb\LapTrinhWeb_BaiTap\Lab_WebBanSach\obj\Debug\Lab_WebBanSach.csprojResolveAssemblyReference.cache
 C:\Users\unfor\Desktop\ThucHanhLapTrinhWeb\LapTrinhWeb_BaiTap\Lab_WebBanSach\obj\Debug\Lab_WebBanSach.dll
 C:\Users\unfor\Desktop\ThucHanhLapTrinhWeb\LapTrinhWeb_BaiTap\Lab_WebBanSach\obj\Debug\Lab_WebBanSach.pdb
+C:\Users\unfor\Desktop\ThucHanhLapTrinhWeb\LapTrinhWeb_BaiTap\Lab_WebBanSach\bin\PagedList.dll
+C:\Users\unfor\Desktop\ThucHanhLapTrinhWeb\LapTrinhWeb_BaiTap\Lab_WebBanSach\bin\PagedList.Mvc.dll
+C:\Users\unfor\Desktop\ThucHanhLapTrinhWeb\LapTrinhWeb_BaiTap\Lab_WebBanSach\bin\PagedList.xml
+C:\Users\unfor\Desktop\ThucHanhLapTrinhWeb\LapTrinhWeb_BaiTap\Lab_WebBanSach\bin\PagedList.Mvc.xml

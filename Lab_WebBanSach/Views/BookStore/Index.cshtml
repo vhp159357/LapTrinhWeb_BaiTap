@@ -1,34 +1,47 @@
-﻿@model IEnumerable<Lab_WebBanSach.Models.SACH>
+﻿@using PagedList.Mvc
+@using Lab_WebBanSach.Models;
+@model PagedList.IPagedList<Lab_WebBanSach.Models.SACH>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
 
+<div class="container-fluid">
     <h3 style="Text-align:Center; color:red">Sản Phẩm Mới</h3>
     @foreach(var sach in Model)
     {
      
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-                    <a href="@Url.Action("Details","BookStore",new { id=sach.Masach})">
-                        <img src="~/Hinhsanpham/@sach.Anhbia" width="100">
-                        <div class="caption">
-                            <h4 class="pull-right">@sach.Giaban VNĐ</h4>
-                            <br />
-                            <p style="font-weight: bold; font-size: 16px; margin-top: 10px;">@sach.Tensach</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">15 reviews</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                        </div>
-                    </a>
+                <a href="@Url.Action("Details","BookStore",new { id=sach.Masach})">
+                    <img src="~/Hinhsanpham/@sach.Anhbia" style="width: 250px; height: 314px;">
+                    <div class="caption">
+                        <h4 class="pull-right">@String.Format("{0:0,0}", sach.Giaban) VNĐ</h4>
+                        <br />
+                        <p style="font-weight: bold; font-size: 16px; margin-top: 10px;">@sach.Tensach</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">15 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                        </p>
+                    </div>
+                </a>
             </div>
         </div>
+        
     }
+</div>
+<div style="margin-left: 45%;">
+    
+    <div class="pagination" style="margin: 0 auto; width: 100%;">
+        <div>Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            Trên @Model.PageCount</div>  
+        <div style="margin: 20px auto">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
+    </div>
+</div>
