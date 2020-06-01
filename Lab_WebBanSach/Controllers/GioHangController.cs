@@ -121,5 +121,55 @@ namespace Lab_WebBanSach.Controllers
             lstGioHang.Clear();
             return RedirectToAction("Index", "BookStore");
         }
+
+        public ActionResult DatHang()
+        {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
+
+            if (Session["Giohang"] == null)
+            {
+                return RedirectToAction("Index", "BookStore");
+            }
+
+            List<GioHang> lst = LayGioHang();
+            ViewBag.TongSoLuong = TongSoLuong();
+            ViewBag.TongTien = TongTien();
+            return View(lst);
+        }
+        [HttpPost]
+        public ActionResult DatHang(FormCollection collection)
+        {
+            DONDATHANG ddh= new DONDATHANG();
+            KHACHHANG kh = (KHACHHANG) Session["TaiKhoan"];
+            List<GioHang> lst = LayGioHang();
+            ddh.MaKH = kh.MaKH;
+            ddh.Ngaydat = DateTime.Now;
+            var ngayGiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);
+            ddh.Ngaygiao = DateTime.Parse(ngayGiao);
+            ddh.Tinhtranggiaohang = false;
+            ddh.Dathanhtoan = false;
+            data.DONDATHANGs.InsertOnSubmit(ddh);
+            data.SubmitChanges();
+            foreach (var item in lst)
+            {
+                CHITIETDONTHANG ctdh = new CHITIETDONTHANG();
+                ctdh.MaDonHang = ddh.MaDonHang;
+                ctdh.Masach = item.iMaSach;
+                ctdh.Soluong = item.iSoLuong;
+                ctdh.Dongia = (decimal) item.dDonGia;
+                data.CHITIETDONTHANGs.InsertOnSubmit(ctdh);
+            }
+            data.SubmitChanges();
+            Session["Giohang"] = null;
+            return RedirectToAction("XacNhanDonHang","GioHang");
+        }
+
+        public ActionResult XacNhanDonHang()
+        {
+            return View();
+        }
     }
 }

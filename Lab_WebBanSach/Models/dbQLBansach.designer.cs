@@ -286,6 +286,8 @@ namespace Lab_WebBanSach.Models
 		
 		private System.Nullable<decimal> _Dongia;
 		
+		private EntityRef<SACH> _SACHes;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -302,6 +304,7 @@ namespace Lab_WebBanSach.Models
 		
 		public CHITIETDONTHANG()
 		{
+			this._SACHes = default(EntityRef<SACH>);
 			OnCreated();
 		}
 		
@@ -381,6 +384,35 @@ namespace Lab_WebBanSach.Models
 					this._Dongia = value;
 					this.SendPropertyChanged("Dongia");
 					this.OnDongiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CHITIETDONTHANG_SACH", Storage="_SACHes", ThisKey="Masach", OtherKey="Masach", IsUnique=true, IsForeignKey=false)]
+		public SACH SACHes
+		{
+			get
+			{
+				return this._SACHes.Entity;
+			}
+			set
+			{
+				SACH previousValue = this._SACHes.Entity;
+				if (((previousValue != value) 
+							|| (this._SACHes.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SACHes.Entity = null;
+						previousValue.CHITIETDONTHANG = null;
+					}
+					this._SACHes.Entity = value;
+					if ((value != null))
+					{
+						value.CHITIETDONTHANG = this;
+					}
+					this.SendPropertyChanged("SACHes");
 				}
 			}
 		}
@@ -1193,6 +1225,8 @@ namespace Lab_WebBanSach.Models
 		
 		private EntityRef<NHAXUATBAN> _NHAXUATBAN;
 		
+		private EntityRef<CHITIETDONTHANG> _CHITIETDONTHANG;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1222,6 +1256,7 @@ namespace Lab_WebBanSach.Models
 			this._VIETSACHes = new EntitySet<VIETSACH>(new Action<VIETSACH>(this.attach_VIETSACHes), new Action<VIETSACH>(this.detach_VIETSACHes));
 			this._CHUDE = default(EntityRef<CHUDE>);
 			this._NHAXUATBAN = default(EntityRef<NHAXUATBAN>);
+			this._CHITIETDONTHANG = default(EntityRef<CHITIETDONTHANG>);
 			OnCreated();
 		}
 		
@@ -1236,6 +1271,10 @@ namespace Lab_WebBanSach.Models
 			{
 				if ((this._Masach != value))
 				{
+					if (this._CHITIETDONTHANG.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMasachChanging(value);
 					this.SendPropertyChanging();
 					this._Masach = value;
@@ -1490,6 +1529,40 @@ namespace Lab_WebBanSach.Models
 						this._MaNXB = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("NHAXUATBAN");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CHITIETDONTHANG_SACH", Storage="_CHITIETDONTHANG", ThisKey="Masach", OtherKey="Masach", IsForeignKey=true)]
+		public CHITIETDONTHANG CHITIETDONTHANG
+		{
+			get
+			{
+				return this._CHITIETDONTHANG.Entity;
+			}
+			set
+			{
+				CHITIETDONTHANG previousValue = this._CHITIETDONTHANG.Entity;
+				if (((previousValue != value) 
+							|| (this._CHITIETDONTHANG.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CHITIETDONTHANG.Entity = null;
+						previousValue.SACHes = null;
+					}
+					this._CHITIETDONTHANG.Entity = value;
+					if ((value != null))
+					{
+						value.SACHes = this;
+						this._Masach = value.Masach;
+					}
+					else
+					{
+						this._Masach = default(int);
+					}
+					this.SendPropertyChanged("CHITIETDONTHANG");
 				}
 			}
 		}

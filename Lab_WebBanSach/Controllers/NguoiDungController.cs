@@ -101,6 +101,7 @@ namespace Lab_WebBanSach.Controllers
                 {
                     ViewBag.ThongBao = "Đăng Nhập Thành Công ";
                     Session["TaiKhoan"] = kh;
+                    return RedirectToAction("Index", "BookStore");
                 }
                 else
                 {

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLBANSACH" Class="dbQLBansachDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=QLBANSACH;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLBANSACHConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=VHP;Initial Catalog=QLBANSACH;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLBANSACHConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Admin" Member="Admins">
     <Type Name="Admin">
       <Column Name="UserAdmin" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -13,6 +13,7 @@
       <Column Name="Masach" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Soluong" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Dongia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="CHITIETDONTHANG_SACH" Member="SACHes" ThisKey="Masach" OtherKey="Masach" Type="SACH" Cardinality="One" />
     </Type>
   </Table>
   <Table Name="dbo.CHUDE" Member="CHUDEs">
@@ -69,6 +70,7 @@
       <Association Name="SACH_VIETSACH" Member="VIETSACHes" ThisKey="Masach" OtherKey="Masach" Type="VIETSACH" />
       <Association Name="CHUDE_SACH" Member="CHUDE" ThisKey="MaCD" OtherKey="MaCD" Type="CHUDE" IsForeignKey="true" />
       <Association Name="NHAXUATBAN_SACH" Member="NHAXUATBAN" ThisKey="MaNXB" OtherKey="MaNXB" Type="NHAXUATBAN" IsForeignKey="true" />
+      <Association Name="CHITIETDONTHANG_SACH" Member="CHITIETDONTHANG" ThisKey="Masach" OtherKey="Masach" Type="CHITIETDONTHANG" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TACGIA" Member="TACGIAs">
