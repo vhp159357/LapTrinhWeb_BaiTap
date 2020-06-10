@@ -230,7 +230,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
-    <Content Include="Content\css\shop-homepage.css" />
+    <Content Include="Content\css\mainStyle.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Images\ancient-place.jpg" />
     <Content Include="Content\Images\dolphins2.jpg" />
@@ -238,6 +238,7 @@
     <Content Include="Content\Images\mountain-view.jpg" />
     <Content Include="Content\Images\riverside-city.jpg" />
     <Content Include="Content\Images\shopping-cart.png" />
+    <Content Include="Content\mainStyle.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
