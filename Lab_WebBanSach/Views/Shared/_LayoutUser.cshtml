@@ -33,7 +33,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" style="width: 80%">
                     <li>
                         @Html.ActionLink("TRANG CHỦ", "Index", "BookStore")
                     </li>
@@ -47,7 +47,7 @@
                         <li class="dropdown" style="float: right;">
                             <a href="#" class="dropbtn" id="365">Xin Chào : @kh.Taikhoan</a>
                             <div class="dropdown-content">
-                                <a href="#">Đăng Xuất</a>
+                                <a href="@Url.Action("Logout","NguoiDung")">Đăng Xuất</a>
                                 
                             </div>
                         </li>

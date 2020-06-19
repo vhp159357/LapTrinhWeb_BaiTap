@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Đăng Nhập Admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Content/LoginPage_Admin/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/LoginPage_Admin/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/LoginPage_Admin/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/LoginPage_Admin/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/LoginPage_Admin/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/LoginPage_Admin/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/LoginPage_Admin/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/LoginPage_Admin/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="~/Content/LoginPage_Admin/images/img-01.png" alt="IMG">
+                </div>
+                @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { @class = "login100-form validate-form" }))
+                {
+                    
+                    <span class="login100-form-title">
+                        Login Admin
+                    </span>
+                    <div class="text-center">@Html.ValidationSummary(true, "", new { @class = "text-danger" })</div>
+                    <div class="wrap-input100 validate-input" data-validate="Vui lòng nhập tài khoản">
+                        <input class="input100" type="text" name="userName" placeholder="User Name">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Vui Lòng Nhập Mật Khẩu">
+                        <input class="input100" type="password" name="passWord" placeholder="Password">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Đăng Nhập
+                        </button>
+                    </div>
+
+                    <div class="text-center p-t-12">
+                        
+                    </div>
+
+                    <div class="text-center p-t-136">
+                        
+                    </div>
+                }
+                
+                    
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--===============================================================================================-->
+    <script src="~/Content/LoginPage_Admin/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/LoginPage_Admin/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/LoginPage_Admin/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/LoginPage_Admin/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/LoginPage_Admin/vendor/tilt/tilt.jquery.min.js"></script>
+    <script>
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/Content/LoginPage_Admin/js/main.js"></script>
+
+</body>
+</html>

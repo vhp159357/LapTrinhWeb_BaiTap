@@ -110,5 +110,11 @@ namespace Lab_WebBanSach.Controllers
             }
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            Session["TaiKhoan"] = null;
+            return RedirectToAction("Index", "BookStore");
+        }
     }
 }

@@ -1,0 +1,98 @@
+﻿@using PagedList.Mvc
+@using Lab_WebBanSach.Models;
+@model PagedList.IPagedList<Lab_WebBanSach.Models.SACH>
+@{
+    ViewBag.Title = "Sach";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@helper Truncate(string input,int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0,length)<text>...</text>
+    }
+}
+<h2>Quản Lý Thông Tin Sách</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới", "ThemSach")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th width="200px">
+           Tên Sách
+        </th>
+        <th width="100px">
+            Giá Bán
+        </th>
+        <th width="300px">
+            Mô Tả
+        </th>
+        <th width="120px">
+           Ảnh Bìa
+        </th>
+        <th width="150px">
+            Ngày Cập Nhật
+        </th>
+        <th width="120px">
+            Số Lượng Tồn
+        </th>
+        <th width="120px">
+            Tên Chủ Đề
+        </th>
+        <th width="100px">
+            Mã NXB
+        </th>
+        <th width="200px"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tensach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Giaban)
+        </td>
+        <td>
+            @Truncate(item.Mota,100)
+        </td>
+        <td>
+            <img src="~/Hinhsanpham/@item.Anhbia" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soluongton)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHUDE.TenChuDe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHAXUATBAN.TenNXB)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "SuaSach", new { id=item.Masach }) |
+            @Html.ActionLink("Chi Tiết", "ChiTietSach", new { id=item.Masach }) |
+            @Html.ActionLink("Xóa", "XoaSach", new { id=item.Masach })
+        </td>
+    </tr>
+}
+
+</table>
+<div style="margin-left: 45%;">
+
+    <div class="pagination" style="margin: 0 auto; width: 100%;">
+        <div>
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            Trên @Model.PageCount
+        </div>
+        <div style="margin: 20px auto">@Html.PagedListPager(Model, page => Url.Action("Sach", new { page }))</div>
+    </div>
+</div>
