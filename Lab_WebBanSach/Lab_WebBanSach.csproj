@@ -465,6 +465,9 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Sach.cshtml" />
     <Content Include="Views\Admin\ThemSach.cshtml" />
+    <Content Include="Views\Admin\ChiTietSach.cshtml" />
+    <Content Include="Views\Admin\XoaSach.cshtml" />
+    <Content Include="Views\Admin\SuaSach.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

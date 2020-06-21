@@ -28,7 +28,7 @@
     </div>
     <div style="float:left;padding:10px;">
         <h4 style="font-weight:bold;color:red;">Tên Sách : @Model.Tensach</h4>
-        <p style="text-align:justify"><span style="font-weight:bold">Mô Tả :</span>@Model.Mota</p>
+        <p style="text-align:justify"><span style="font-weight:bold">Mô Tả :</span>@Html.Raw(Model.Mota)</p>
         <p style="font-weight:bold">Giá Bán:<span style="color:red;font-size:16pt;"></span>@String.Format("{0:0,0}", Model.Giaban) VNĐ</p>
     </div>
     <div id="DatMua">

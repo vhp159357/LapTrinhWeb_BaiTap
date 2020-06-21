@@ -1,0 +1,88 @@
+﻿@model Lab_WebBanSach.Models.SACH
+
+@{
+    ViewBag.Title = "XoaSach";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xác Nhận Thông Tin Cần Xóa</h2>
+
+<h3>Bạn Quyết Định Xóa Quyển Sách Này ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Sách
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tensach)
+        </dd>
+
+        <dt>
+            Giá Bán
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0}",Model.Giaban) VNĐ
+        </dd>
+
+        <dt>
+            Mô Tả
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Mota)
+        </dd>
+
+        <dt>
+            Ảnh Bìa
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Hinhsanpham/" + Model.Anhbia)" width="120px;"/>
+        </dd>
+
+        <dt>
+            Ngày Cập Nhật
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaycapnhat)
+        </dd>
+
+        <dt>
+            Số Lượng Tồn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+        <dt>
+            Chủ Đề
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHUDE.TenChuDe)
+        </dd>
+
+        <dt>
+            Nhà Xuất Bản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHAXUATBAN.TenNXB)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" /> |
+            @Html.ActionLink("Trở Về", "Sach")
+        </div>
+    }
+</div>
