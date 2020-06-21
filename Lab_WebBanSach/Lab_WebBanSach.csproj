@@ -234,11 +234,11 @@
     <Content Include="Content\css\mainStyle.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Images\ancient-place.jpg" />
+    <Content Include="Content\Images\delivery.png" />
     <Content Include="Content\Images\dolphins2.jpg" />
     <Content Include="Content\Images\kayaks.jpg" />
     <Content Include="Content\Images\mountain-view.jpg" />
     <Content Include="Content\Images\riverside-city.jpg" />
-    <Content Include="Content\Images\shopping-cart.png" />
     <Content Include="Content\LoginPage_Admin\css\main.css" />
     <Content Include="Content\LoginPage_Admin\css\util.css" />
     <Content Include="Content\LoginPage_Admin\fonts\font-awesome-4.7.0\css\font-awesome.css" />
